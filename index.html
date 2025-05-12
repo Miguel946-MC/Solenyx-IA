@@ -1,20 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo ao Solenyx-IA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solenyx-IA</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #111;
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #00ffe7;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #00ffe7;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #00ccb8;
+    }
+    img {
+      margin-top: 30px;
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffe7;
+    }
+    footer {
+      background-color: #111;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo ao Solenyx-IA</h1>
-    </header>
-    <main>
-        <p>Este é o site oficial do repositório Solenyx-IA no GitHub!</p>
-        <p>Aqui você pode acompanhar o progresso do projeto e encontrar mais informações.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Solenyx-IA. Todos os direitos reservados.</p>
-    </footer>
+  <header>
+    <h1>Solenyx-IA</h1>
+    <p>Gere imagens incríveis com inteligência artificial!</p>
+  </header>
+  <main>
+    <input type="text" id="prompt" placeholder="Digite o que você quer ver em uma imagem...">
+    <br>
+    <button onclick="gerarImagem()">Gerar Imagem</button>
+    <div id="imagemGerada"></div>
+  </main>
+  <footer>
+    © 2025 Solenyx-IA. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function gerarImagem() {
+      const prompt = document.getElementById("prompt").value.trim();
+      if (prompt === "") {
+        alert("Por favor, digite algo para gerar uma imagem.");
+        return;
+      }
+
+      const imagemURL = `https://source.unsplash.com/800x600/?${encodeURIComponent(prompt)}`;
+
+      document.getElementById("imagemGerada").innerHTML =
+        `<img src="${imagemURL}" alt="Imagem gerada para: ${prompt}">`;
+    }
+  </script>
 </body>
 </html>
